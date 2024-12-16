@@ -1,0 +1,22 @@
+@mixin flex-gap($gap: 1){
+    display: flex;
+    flex-direction: column;
+    row-gap: #{$gap}px;
+}
+
+@mixin blocks-sizers{
+    height: auto;
+    width: auto;
+    margin-top: var(--padding-top-main);
+}
+
+@mixin size-block{
+    width: var(--width);
+    margin-inline: auto;
+}
+
+@mixin size-main-blocks{
+    width: var(--width);
+    margin-inline: auto;
+    margin-bottom: var(--margin-bottom);
+}

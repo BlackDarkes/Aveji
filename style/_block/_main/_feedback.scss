@@ -1,0 +1,81 @@
+.feedback-main{
+    @include blocks-sizers;
+
+    &__block{
+        @include size-block;
+
+        .feedback{
+            @function grid-column($column: 1){
+                @return #{$column * 18};
+            }
+
+            display: grid;
+            grid-template-columns: repeat(grid-column(1), 1fr);
+            row-gap: 32px;
+
+            @media (max-width: 1260px) {
+                grid-template-columns: 1fr;
+            }
+
+            &__title{
+                grid-column: 1/4;
+                font-size: var(--h2-font);
+
+                @media (max-width: 1260px) {
+                    grid-row: 1;
+                    grid-column: 1;
+                    font-size: var(--h2-fontmob);
+                }
+            }
+
+            .people{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 20px;
+                grid-column: -1/1;
+                grid-row: 2;
+
+                &__block{
+                    outline: 1px solid black;
+                    padding-top: 45px;
+                    padding-bottom: 72px;
+                    padding-inline: 40px;
+                    text-align: center;
+
+                    &-image{
+                        user-select: none;
+                        margin-inline: auto;
+                        margin-bottom: 2.313rem;
+                    }
+
+                    .text{
+                        &__name{
+                            font-family: 'Helvetica', sans-serif;
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-bottom: 20px;
+                        }
+
+                        &__main{
+                            line-height: 22.4px;
+                        }
+                    }
+                }
+
+                @media (max-width: 1260px) {
+                    grid-template-columns: repeat(2, 1fr);
+                    row-gap: 20px;
+                    grid-row: 2;
+                    grid-column: 1;
+                }
+
+                @media (max-width: 700px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+    }
+    @media (max-width: 1260px) {
+        margin-top: 48px;
+    }
+}

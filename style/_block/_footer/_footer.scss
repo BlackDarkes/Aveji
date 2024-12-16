@@ -1,0 +1,102 @@
+.footer{
+    padding-bottom: 16px;
+
+    &__block{
+        @include size-block;
+
+        .information{
+            @function grid-column($column: 1){
+                @return #{$column * 18}
+            }
+
+            display: grid;
+            grid-template-columns: repeat(grid-column(1), 1fr);
+
+            @media (max-width: 1260px) {
+                grid-template-columns: 1fr;
+            }
+
+            &-list{
+                grid-column: 1/19;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: end;
+                
+                .footer-info{
+                    &__info{
+                        font-size: 18px;
+
+                        @media (max-width: 800px) {
+                            margin-bottom: 24px;
+                        }
+                    }
+
+                    .documentation{
+                        &__link{
+                            position: relative;
+
+                            &:hover::before{
+                                transform: scaleX(1);
+                                transition: transform 0.5s;
+                                transform-origin: left;
+                            }
+
+                            &::before{
+                                content: "";
+                                position: absolute;
+                                background-color: var(--dark-color);
+                                bottom: -5px; left: 0;
+                                width: 100%;
+                                height: 1px;
+                                transform-origin: right;
+                                transform: scaleX(0);
+                                transition: transform 0.5s;
+                            }
+                        }
+
+                        @media (max-width: 800px) {
+                            margin-bottom: 24px;
+                        }
+                    }
+
+                    .social{
+                        display: flex;
+                        column-gap: 40px;
+                        font-size: 18px;
+
+                        &__link{
+                            position: relative;
+
+                            &:hover::before{
+                                transform: scaleX(1);
+                                transition: transform 0.5s;
+                                transform-origin: left;
+                            }
+
+                            &::before{
+                                content: "";
+                                position: absolute;
+                                bottom: 0; left: 0;
+                                width: 100%;
+                                height: 1px;
+                                background-color: var(--dark-color);
+                                transform-origin: right;
+                                transform: scaleX(0);
+                                transition: transform 0.5s;
+                            }
+
+                        }
+                    }
+                }
+                @media (max-width: 1260px) {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    @media (max-width: 1260px) {
+        margin-top: 60px;
+        margin-inline: 67px;
+    }
+}

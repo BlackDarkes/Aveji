@@ -1,0 +1,99 @@
+.form-main{
+    @include blocks-sizers;
+    margin-bottom: 120px;
+
+    &__block{
+        @include size-block;
+        
+        .form{
+            @function grid-column($column: 1){
+                @return #{$column * 18}
+            }
+
+            display: grid;
+            grid-template-columns: repeat(grid-column(1), 1fr);
+
+            @media (max-width: 1260px) {
+                grid-template-columns: 1fr;
+            }
+
+            &-image{
+                grid-column: 1/8;
+                width: 100%;
+
+                @media (max-width: 1260px) {
+                    display: none;
+                }
+            }
+
+            &__input{
+                grid-column: 10/18;
+
+                .title{
+                    margin-bottom: 40px;
+
+                    &__title{
+                        margin-bottom: 32px;
+
+                        @media (max-width: 1260px) {
+                            font-size: var(--h2-fontmob);
+                        }
+                    }
+                }
+
+                .forma{
+                    margin-bottom: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 16px;
+                    width: calc(100% - 7%);
+
+                    &-input{
+                        padding-block: 13px;
+                        height: 100%;
+                        width: 100%;
+                        border-bottom: 1px solid var(--dark-color);
+                    }
+
+                    &__button{
+                        margin-top: 8px;
+                        padding: 12px 20px;
+                        background-color: var(--dark-color);
+                        color: var(--lite-color);
+                        transition: 0.7s;
+
+                        @media (hover: hover) {
+                            &:hover{
+                                background-color: var(--hover-accent);
+                                color: var(--dark-color);
+                            }
+                        }
+
+                        @media (hover: none) {
+                            transition: 0s;
+
+                            &:active{
+                                background-color: var(--hover-accent);
+                                color: var(--dark-color);
+                            }
+                        }
+                    }
+                }
+
+                .link{
+                    display: flex;
+                    column-gap: 8px;
+                    user-select: none;
+                }
+
+                @media (max-width: 1260px) {
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+            }
+        }
+    }
+    @media (max-width: 1260px) {
+        margin-top: 48px;
+    }
+}

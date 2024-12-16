@@ -1,0 +1,25 @@
+//bace
+@import "./_base/normolize";
+@import "./_base/bace";
+@import "./_base/mixin";
+@import "./_base/variable";
+
+//block
+/*header*/
+@import "./_block/_header/header";
+
+/*main*/
+@import "./_block/_main/hero";
+@import "./_block/_main/about";
+@import "./_block/_main/steps";
+@import "./_block/_main/projects";
+@import "./_block/_main/feedback";
+@import "./_block/_main/form";
+
+/*footer*/
+@import "./_block/_footer/footer";
+
+
+//font
+@import url('https://fonts.cdnfonts.com/css/helvetica-255');;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
